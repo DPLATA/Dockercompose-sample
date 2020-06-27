@@ -1,0 +1,21 @@
+version: "3.7"
+
+services:
+
+ dockercompose_express:
+  image: dockercompose_express
+  build: ../Javascript/express-simple-server
+  container_name: dockercompose_express
+  restart: always
+  expose:
+      - 8000
+
+ dockercompose_nginx:
+  image: dockercompose_nginx
+  build: ../Nginx/simple-nginx/
+  container_name: dockercompose_nginx
+  restart: always
+  #volumes: 
+  #- ../Nginx/simple-nginx/nginx.conf:/etc/nginx/nginx.conf
+  ports:
+   - "80:80"
